@@ -5,7 +5,21 @@ const baseUrl = 'http://127.0.0.1:3000';
 const appId = 'kiripostapp';
 const redirectUri = 'http://localhost:3000/callback';
 
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+  for (const cookie of cookies) {
+    const [cookieName, cookieValue] = cookie.split("=");
+    if (cookieName === name) {
+      return cookieValue;
+    }
+  }
+  return null;
+}
+
 function App() {
+  const cookieValue = getCookie("mycookie");
+  console.log(`Value of mycookie from app.example.com: ${cookieValue}`);
+  
   const [authorizationCode, setAuthorizationCode] = useState(null);
   const [users, setUsers] = useState([]);
   const [accessToken, setAccessToken] = useState(null);
