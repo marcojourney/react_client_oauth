@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import LoginForm from './login.form';
 
 const baseUrl = 'http://127.0.0.1:3000';
 const appId = 'kiripostapp';
@@ -60,13 +61,15 @@ function App() {
     })
   }
 
-  return (
-    <div className="App">
-      {!authorizationCode && <button onClick={handleAuthorization}>Authorization</button>}
-      {authorizationCode && <button onClick={handleGetAccessToken}>Get Access Token</button>}
-      <button onClick={fetchUsers}>Get Users</button>
-    </div>
-  );
+  return <LoginForm />
+
+  // return (
+  //   <div className="App">
+  //     {!authorizationCode && <button onClick={handleAuthorization}>Authorization</button>}
+  //     {authorizationCode && <button onClick={handleGetAccessToken}>Get Access Token</button>}
+  //     <button onClick={fetchUsers}>Get Users</button>
+  //   </div>
+  // );
 }
 
 export default App;
